@@ -1,5 +1,3 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -46,3 +44,31 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+export NVM_DIR=$HOME/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export GIT_EDITOR=vim
+export EDITOR=vim
+
+export GOROOT=$HOME/usr/go
+export GOPATH=$HOME/work/go
+
+# Add `~/bin` to the `$PATH`
+export PATH=$HOME/bin:$HOME/usr/bin:$PATH;
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$HOME/usr/liteide/bin:${GOPATH}/bin
+export PATH=$PATH:$HOME/usr/depot_tools
+
+export EXPERIMENTAL_USE_JAVA8=true
+export ANDROID_SDK_ROOT=$HOME/usr/android/android-sdk-linux
+export ANDROID_PLATFORM="$ANDROID_SDK_ROOT/platforms/android-23"
+export ANDROID_NDK_ROOT=$HOME/usr/android/android-ndk
+export ANDROID_NDK_PLATFORM=android-23
+export ANDROID_API_VERSION=android-23 
+export NDK=$HOME/usr/android/android-ndk
+export ANDROID_NDK=$HOME/usr/android/android-ndk
+
+export QT_DIR=/opt/Qt/
+
+
