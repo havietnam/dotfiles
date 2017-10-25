@@ -149,3 +149,6 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+alias espmake32="make -f ~/usr/Arduino/makeEspArduino/makeEspArduino.mk CHIP=esp32 ESP_ROOT=~/usr/Arduino/hardware/espressif/esp32"
+

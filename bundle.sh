@@ -34,3 +34,5 @@ cd ~/.vim/bundle && git clone https://github.com/FelikZ/ctrlp-py-matcher
 #vim-go
 cd ~/.vim/bundle && git clone https://github.com/fatih/vim-go.git
 
+sudo apt-get install silversearcher-ag
+

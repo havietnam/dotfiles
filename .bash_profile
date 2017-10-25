@@ -56,19 +56,20 @@ export GOPATH=$HOME/work/go
 
 # Add `~/bin` to the `$PATH`
 export PATH=$HOME/bin:$HOME/usr/bin:$PATH;
-export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$HOME/usr/liteide/bin:${GOPATH}/bin
+export PATH=$PATH:${GOPATH}/bin:$GOROOT/bin
+export PATH=$PATH:$HOME/usr/liteide/bin
 export PATH=$PATH:$HOME/usr/depot_tools
 
 export EXPERIMENTAL_USE_JAVA8=true
 export ANDROID_SDK_ROOT=$HOME/usr/android/android-sdk-linux
 export ANDROID_PLATFORM="$ANDROID_SDK_ROOT/platforms/android-23"
 export ANDROID_NDK_ROOT=$HOME/usr/android/android-ndk
-export ANDROID_NDK_PLATFORM=android-23
-export ANDROID_API_VERSION=android-23 
-export NDK=$HOME/usr/android/android-ndk
 export ANDROID_NDK=$HOME/usr/android/android-ndk
+export ANDROID_NDK_PLATFORM=android-23
+export ANDROID_API_VERSION=android-23
+export NDK=$HOME/usr/android/android-ndk
 
+export PATH=$PATH:$HOME/usr/Arduino/hardware/espressif/esp32/tools/xtensa-esp32-elf/bin
 export QT_DIR=/opt/Qt/
 
 
