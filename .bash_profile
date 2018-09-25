@@ -45,9 +45,6 @@ complete -W "NSGlobalDomain" defaults;
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-export NVM_DIR=$HOME/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 export GIT_EDITOR=vim
 export EDITOR=vim
 
@@ -55,7 +52,7 @@ export GOROOT=$HOME/usr/go
 export GOPATH=$HOME/work/go
 
 # Add `~/bin` to the `$PATH`
-export PATH=$HOME/bin:$HOME/usr/bin:$PATH;
+export PATH=$PATH:$HOME/bin:$HOME/usr/bin
 export PATH=$PATH:${GOPATH}/bin:$GOROOT/bin
 export PATH=$PATH:$HOME/usr/liteide/bin
 export PATH=$PATH:$HOME/usr/depot_tools
@@ -69,7 +66,12 @@ export ANDROID_NDK_PLATFORM=android-23
 export ANDROID_API_VERSION=android-23
 export NDK=$HOME/usr/android/android-ndk
 
+export NVM_DIR=$HOME/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 export PATH=$PATH:$HOME/usr/Arduino/hardware/espressif/esp32/tools/xtensa-esp32-elf/bin
+export IDF_PATH=$HOME/usr/esp-idf/esp-idf
+
 export QT_DIR=/opt/Qt/
 
 
