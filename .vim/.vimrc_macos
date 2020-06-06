@@ -1,0 +1,188 @@
+syntax on
+
+" pathogen
+" execute pathogen#infect('~/.vim/bundle/{}')
+
+filetype plugin indent on
+filetype plugin on
+
+" NERDTree
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp', '\.git', 'node_modules', 'venv', '\.pyc']
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" split navigations
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
+
+" kiteco
+let g:kite_tab_complete=1
+nmap <silent> <buffer> gK <Plug>(kite-docs)
+
+" Colorize
+if $COLORTERM == 'gnome-terminal'
+  set term=gnome-256color
+  colorscheme peachpuff
+else
+  colorscheme peachpuff
+endif
+
+set mouse=a
+
+" Enable line numbers
+" set number
+" Show “invisible” characters
+" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+" set list
+
+set nowrap        " don't wrap lines
+set backspace=indent,eol,start
+                  " allow backspacing over everything in insert mode
+
+set autoindent    " always set autoindenting on
+set copyindent    " copy the previous indentation on autoindenting
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch     " set show matching parenthesis
+set smartcase     " ignore case if search pattern is all lowercase,
+                  "    case-sensitive otherwise
+set smarttab      " insert tabs on the start of a line according to
+                  "    shiftwidth, not tabstop
+
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set expandtab
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Make Vim more useful
+set nocompatible
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
+" Enhance command-line completion
+set wildmenu
+" Allow cursor keys in insert mode
+set esckeys
+" Optimize for fast terminal connections
+set ttyfast
+" Add the g flag to search/replace by default
+set gdefault
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+
+" replace currently selected text with default register without yanking it
+xnoremap p "_dP
+let mapleader=","
+xnoremap <leader>p "_dP
+
+" Respect modeline in files
+set modeline
+set modelines=4
+" Enable per-directory .vimrc files and disable unsafe commands in them
+" set exrc
+" set secure
+
+" Highlight searches
+set hlsearch
+" Ignore case of searches
+set ignorecase
+" Highlight dynamically as pattern is typed
+set incsearch
+
+" Disable error bells
+set noerrorbells
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+
+" Don’t show the intro message when starting Vim
+set shortmess=atI
+" Show the filename in the window titlebar
+set title
+" Show the (partial) command as it’s being typed
+set showcmd
+
+" Use relative line numbers
+" if exists("&relativenumber")
+"         set relativenumber
+"         au BufReadPost * set relativenumber
+" endif
+
+" if exists('+colorcolumn')
+"   set colorcolumn=80
+" else
+"   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+" endif
+
+" Strip trailing whitespace (,ss)
+" function! StripWhitespace()
+"         let save_cursor = getpos(".")
+"         let old_query = getreg('/')
+"         :%s/\s\+$//e
+"         call setpos('.', save_cursor)
+"         call setreg('/', old_query)
+" endfunction
+" noremap <leader>ss :call StripWhitespace()<CR>
+
+" Save a file as root (,W)
+" noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+
+" Automatic commands
+if has("autocmd")
+        " Enable file type detection
+        filetype on
+        " Treat .json files as .js
+        autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+        " Treat .md files as Markdown
+        autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+endif
+
+" status line
+" function! GitBranch()
+"   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+" endfunction
+"
+" function! StatuslineGit()
+"   let l:branchname = GitBranch()
+"   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+" endfunction
+"
+" set statusline=
+" set statusline+=%#PmenuSel#
+" set statusline+=%{StatuslineGit()}
+" set statusline+=%#LineNr#
+" set statusline+=\ %f
+" set statusline+=%m\
+" set statusline+=%=
+" set statusline+=%#CursorColumn#
+" set statusline+=\ %y
+" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" set statusline+=\[%{&fileformat}\]
+" set statusline+=\ %p%%
+" set statusline+=\ %l:%c
+" set statusline+=\
+
+" set showmode
+set noshowmode
+set laststatus=2
